@@ -5,6 +5,7 @@ namespace DataCards.Models
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
+            /*
             // We need contexts for character attributes and wargear attributes.
             using (var context = new AttributesContext())
             {
@@ -14,6 +15,7 @@ namespace DataCards.Models
                     return;
                 }
             }
+            */
         }
     }
 }
