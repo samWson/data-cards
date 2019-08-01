@@ -1,5 +1,5 @@
 ﻿using System;
-
+using DataCards.Models;
 using Xamarin.Forms;
 
 namespace DataCards
@@ -13,8 +13,14 @@ namespace DataCards
 
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            // TODO: Write to database. Reference: https://docs.microsoft.com/en-us/xamarin/get-started/quickstarts/multi-page?pivots=macos
-            // NoteEntryPage.xaml.cs
+            using (var context = new DataCardContext(App.DbPath))
+            {
+                var datacard = (DataCard)BindingContext;
+                await context.DataCards.AddAsync(datacard);
+                await context.SaveChangesAsync();
+            }
+
+            // FIXME: remove this debugging code once confident that this method works.
             Console.WriteLine("OnSaveButtonClicked event");
             await Navigation.PopAsync();
         }

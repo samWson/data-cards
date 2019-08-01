@@ -8,12 +8,16 @@ namespace DataCards
 {
     public partial class App : Application
     {
-        public static string FolderPath { get; private set; }
+        public static string DbPath { get; private set; }
 
         public App()
         {
             InitializeComponent();
-            FolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+
+            string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            string dbName = "data-cards.db";
+            DbPath = Path.Combine(folderPath, dbName);
+
             MainPage = new NavigationPage(new DataCardIndex());
         }
 

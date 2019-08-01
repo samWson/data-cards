@@ -5,8 +5,10 @@
              Title="New Data Card">
     <ContentPage.Content>
         <StackLayout>
-            <Entry Placeholder="Name"/>
-            <Entry Placeholder="Points"/>
+            <Entry Placeholder="Name"
+                   Text="{Binding Name}"/>
+            <Entry Placeholder="Points"
+                   Text="{Binding Points}"/>
             <Button Text="Save"
                     Clicked="OnSaveButtonClicked"/>
         </StackLayout>
